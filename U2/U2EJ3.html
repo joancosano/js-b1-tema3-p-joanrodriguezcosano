@@ -54,6 +54,18 @@
     </body>
 	<script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
+
+		function createTitle(text){
+			const tit = document.querySelector(".title")
+			if (!tit){
+				const divTitle = document.createElement("div")
+				divTitle.classList.add("title");
+				const h1 = document.createElement("h1");
+				h1.textContent = text
+				divTitle.appendChild(h1);
+				document.querySelector("#myContent").appendChild(divTitle);
+			}
+		}
 		
 	</script>
     <script defer id="test">
