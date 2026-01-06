@@ -55,17 +55,36 @@
 	<script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
-		function createTitle(text){
-			const tit = document.querySelector(".title")
-			if (!tit){
-				const divTitle = document.createElement("div")
-				divTitle.classList.add("title");
-				const h1 = document.createElement("h1");
-				h1.textContent = text
-				divTitle.appendChild(h1);
-				document.querySelector("#myContent").appendChild(divTitle);
+		function createTitle(textTitle){
+			if (document.querySelector('.title')){
+				return;
+			}
+			const divTitle = document.createElement("div");
+			divTitle.classList.add("title")
+
+			const h1Title = document.createElement("h1");
+			h1Title.textContent = textTitle;
+
+			divTitle.appendChild(h1Title);
+			document.querySelector('#myContent').appendChild(divTitle)
+			
+		}
+		function createParagraph(textParagraf){
+				if (document.querySelector('.title')){
+				const paragraf = document.createElement("p")
+				paragraf.classList.add("paragraph")
+				paragraf.textContent = textParagraf
+				document.querySelector(".title").appendChild(paragraf)
 			}
 		}
+
+		createTitle("Mi primera web dinamica hecha desde JavaScript")
+		createParagraph("Esto es un paragrafo creado desde JavaScript");
+		createParagraph("Esto es otro paragrafo creado desde JavaScript");
+	
+
+		document.querySelector(".paragraph").remove();
+
 		
 	</script>
     <script defer id="test">
