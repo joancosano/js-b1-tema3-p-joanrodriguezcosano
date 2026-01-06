@@ -47,7 +47,23 @@
     </div>
     <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
-          
+
+function changeColor(event){
+
+        const poligons = [...document.querySelectorAll('circle,rect,polygon')];
+        const currentPoligon = event.target;
+
+        const index = poligons.indexOf(currentPoligon);
+        const nextIndex = (index === poligons.length-1) ? 0 : ((index + 1) % poligons.length)
+        const nextPoligon = poligons[nextIndex];
+
+        currentPoligon.classList.remove(...[...currentPoligon.classList]);
+        currentPoligon.classList.add(...nextPoligon.classList);
+      }
+      document.querySelector("circle").addEventListener("mouseover", changeColor);
+      document.querySelector("rect").addEventListener("mouseover", changeColor);
+      document.querySelector("polygon").addEventListener("mouseover", changeColor);
+      
 	</script>
     <script defer id="test">
         /**
@@ -59,5 +75,6 @@
         document.getElementById('polygon').dispatchEvent(new Event('mouseover'));        
         window.test = document.querySelector(".svg-container");
     </script>
+
   </body>
 </html>
