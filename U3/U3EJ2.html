@@ -77,8 +77,23 @@
 		<div id="myContent" class="content"></div>
     </body>
     <script defer id="solutionJS">
-        //Escribe aquí tu solución / escriviu aquí la vostra solució:
-        
+
+     
+/*
+    
+    document.querySelector(".red").addEventListener("click", event => document.querySelector("#myContent").textContent = event.target.className)
+    document.querySelector(".green").addEventListener("click", event => document.querySelector("#myContent").textContent = event.target.className)
+    document.querySelector(".orange").addEventListener("click", event => document.querySelector("#myContent").textContent = event.target.className)
+*/
+  
+function showClass(event) {
+  document.querySelector("#myContent").textContent = event.target.className;
+}
+
+document.querySelector(".red").addEventListener("click",showClass)
+document.querySelector(".green").addEventListener("click",showClass)
+document.querySelector(".orange").addEventListener("click",showClass)
+    
     </script>
     <script defer id="test">
         /**
