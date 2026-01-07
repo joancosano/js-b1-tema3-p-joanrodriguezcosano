@@ -71,11 +71,27 @@
 
         </script>
         <script defer id="test">
-            /**
-            * TEST
-            * The purpose of this code is purely for TESTING PURPOSES, 
-            * Do not modify this script
-            */
+            
+            function extrasCheck(event){
+
+                const armoredWindows = document.querySelector("#armored-windows"); 
+                const tintedWindows = document.querySelector("#tinted-windows"); 
+                const sunroof = document.querySelector("#sunroof"); 
+
+                if (event.target.id === "sunroof"){
+                    armoredWindows.checked = false 
+                    tintedWindows.checked = false
+                }
+
+                  if (event.target.id === "armored-windows" || event.target.id === "tinted-windows"){
+                    sunroof.checked = false;
+                }
+            }
+
+            const extras = document.querySelectorAll("input[name='extras']").forEach(
+                extra => extra.addEventListener("change", extrasCheck) 
+            )
+   
             let resultTest = new Array();
             
             document.querySelector('#armored-windows').checked = true;
