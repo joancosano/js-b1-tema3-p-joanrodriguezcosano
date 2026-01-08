@@ -48,27 +48,55 @@
     <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
-function changeColor(event){
+        let circle = document.querySelector("#circle");
+        let rect = document.querySelector("#rect");
+        let polygon = document.querySelector("#polygon");
 
-        const poligons = [...document.querySelectorAll('circle,rect,polygon')];
-        const currentPoligon = event.target;
+        
+        circle.addEventListener("mouseover",function(){
 
-        const index = poligons.indexOf(currentPoligon);
-        const nextIndex = (index === poligons.length-1) ? 0 : ((index + 1) % poligons.length)
-        const nextPoligon = poligons[nextIndex];
+          const poligons = [...document.querySelectorAll('#circle,#rect,#polygon')];
 
-        currentPoligon.classList.remove(...[...currentPoligon.classList]);
-        currentPoligon.classList.add(...nextPoligon.classList);
-      }
-      document.querySelector("circle").addEventListener("mouseover", changeColor);
-      document.querySelector("rect").addEventListener("mouseover", changeColor);
-      document.querySelector("polygon").addEventListener("mouseover", changeColor);
-      
+          const index = poligons.indexOf(circle);
+          const nextIndex = (index === poligons.length-1) ? 0 : ((index + 1) % poligons.length)
+          const nextPoligon = poligons[nextIndex];
+
+          circle.classList.remove("red","green","orange")
+          circle.classList.add(nextPoligon.getAttribute("class"));
+
+
+        })
+        
+         rect.addEventListener("mouseover",function(){
+
+          const poligons = [...document.querySelectorAll('#circle,#rect,#polygon')];
+
+          const index = poligons.indexOf(rect);
+          const nextIndex = (index === poligons.length-1) ? 0 : ((index + 1) % poligons.length)
+          const nextPoligon = poligons[nextIndex];
+
+          rect.classList.remove("red","green","orange")
+          rect.classList.add(nextPoligon.getAttribute("class"));
+        })
+
+          polygon.addEventListener("mouseover",function(){
+
+          const poligons = [...document.querySelectorAll('#circle,#rect,#polygon')];
+
+          const index = poligons.indexOf(polygon);
+          const nextIndex = (index === poligons.length-1) ? 0 : ((index + 1) % poligons.length)
+          const nextPoligon = poligons[nextIndex];
+
+          polygon.classList.remove("red","green","orange")
+          polygon.classList.add(nextPoligon.getAttribute("class"));
+        })
+
+
 	</script>
     <script defer id="test">
         /**
         * TEST
-        * The purpose of this code is purely for TESTING PURPOSES, 
+        * The purpose of this code is purely fqor TESTING PURPOSES, 
         * Do not modify this script
         */
         document.getElementById('circle').dispatchEvent(new Event('mouseover'));
