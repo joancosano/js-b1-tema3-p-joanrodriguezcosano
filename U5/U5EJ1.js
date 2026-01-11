@@ -25,6 +25,12 @@ localStorage.setItem(
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
+let myTriangles = JSON.parse(localStorage.getItem("myTriangles"));
+
+myTriangles = myTriangles.slice(0, -1);
+
+localStorage.setItem("myTriangles", JSON.stringify(myTriangles));
+
 /**
  * TEST
  * The purpose of this code is purely for TESTING PURPOSES, 
